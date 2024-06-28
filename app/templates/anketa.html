@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Anketa</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Заполните анкету</h1>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="name">Введите ваше имя:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Город:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="hobby">Хобби:</label>
+                <select class="form-control" id="hobby" name="hobby">
+                    <option>Футбол</option>
+                    <option>Баскетбол</option>
+                    <option>Волейбол</option>
+                    <option>Хоккей</option>
+                    <option>Теннис</option>
+                    <option>Бег</option>
+                    <option>Шахматы</option>
+                    <option>Плавание</option>
+                    <option>Прыжки в длину</option>
+                    <option>Прыжки в высоту</option>
+                    <option>Прыжки в сторону</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Ваш возраст:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Ваш Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Ваш телефон:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Отправить анкету</button>
+        </form>
+
+        <hr>
+
+        <h2>Ваши данные</h2>
+        {% for post in posts %}
+        <div class="post">
+            <h4>{{ post.name }}</h4>
+            <p>{{ post.city }}</p>
+            <p>{{ post.hobby }}</p>
+            <p>{{ post.age }}</p>
+            <p>{{ post.email }}</p>
+            <p>{{ post.phone }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
